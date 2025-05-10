@@ -1,14 +1,12 @@
 const jwt = require("jsonwebtoken");
 const cookieParser = require('cookie-parser');
 
-// Make sure this is used before your routes in server.js
-// app.use(cookieParser());
+
 
 exports.verifyToken = (req, res, next) => {
-    // First try cookies (for web)
     let token = req.cookies?.token;
     
-    // Fallback to Authorization header (for API clients)
+    // (for API clients)
     if (!token && req.headers.authorization?.startsWith('Bearer ')) {
         token = req.headers.authorization.split(' ')[1];
     }

@@ -33,9 +33,8 @@ const getLeaderboard = async (req, res) => {
   try {
     const users = await User.find({ wpm: { $gt: 0 } }) // Only users with WPM > 0
       .sort({ wpm: -1 }) // Sort by WPM descending
-      .limit(10) // Top 10 only
-      .select("username wpm -_id"); // Only return username and WPM
-    
+      .limit(15) 
+      .select("username wpm -_id"); 
       res.header('Access-Control-Allow-Origin', 'http://localhost:5173')
       .header('Access-Control-Allow-Credentials', 'true')
       .status(200)
