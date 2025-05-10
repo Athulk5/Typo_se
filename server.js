@@ -4,13 +4,11 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 const cookieParser = require('cookie-parser');
 
-// Add these before your routes
 app.use(cookieParser());
 app.use(cors({
   origin: 'http://localhost:5173',
