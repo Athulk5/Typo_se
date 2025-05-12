@@ -5,7 +5,6 @@ const updateWpm = async (req, res) => {
     const { wpm } = req.body;
     const userId = req.user.userId;
 
-    // Find user and update WPM if new score is higher
     const user = await User.findOneAndUpdate(
       { _id: userId, wpm: { $lt: wpm } }, // Only update if new WPM is higher
       { $set: { wpm: wpm } },
